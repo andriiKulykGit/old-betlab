@@ -1,0 +1,189 @@
+.table2 {
+	font-size: 14px;
+	font-weight: 400;
+	width: 100%;
+	line-height: 120%;
+}
+
+.table2__btn {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+	width: 100%;
+	background-color: #bac3cc;
+	padding-block: 8px;
+	padding-left: 48px;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 16px;
+		width: 16px;
+		height: 2px;
+		background: #000;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		left: 16px;
+		width: 16px;
+		height: 2px;
+		background: #000;
+		rotate: 90deg;
+		transition: 0.1s;
+	}
+	&._active {
+		&:after {
+			scale: 0 1;
+		}
+	}
+}
+
+.table2__head {
+}
+
+.table2__group {
+}
+
+.table2__row {
+	transition: 0.1s ease-in-out background-color;
+	display: grid;
+	grid-template-columns: 58px 220px minmax(140px, 1fr) 30px 104px repeat(4, 60px) repeat(7, minmax(140px, 1fr));
+	gap: 4px;
+	padding-block: 2px;
+	min-width: 1830px;
+}
+
+.table2__row:nth-child(even) {
+	background-color: #f2f3f5;
+}
+
+.table2__row_btn {
+	grid-template-columns: 100%;
+	background: none !important;
+}
+
+.table2__cell {
+	padding: 10px 4px;
+	display: grid;
+	place-items: center;
+	text-align: center;
+}
+
+.table2__cell_grid {
+	padding: 0;
+}
+
+.table2__cell_name {
+	display: flex;
+}
+
+.table2__line {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	flex: 1;
+	padding-block: 2px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.table2__teil {
+	display: grid;
+	place-items: center;
+	flex: 1;
+}
+
+.table2__grid {
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #d8d8d8;
+}
+
+.table2__grid td:not(:last-of-type) {
+	border-right: 1px solid #d8d8d8;
+}
+
+.table2__grid tr:not(:last-of-type) {
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.table2__grid-item {
+	font-size: 14px;
+	width: 25%;
+}
+
+.table2__grid-item_red {
+	background-color: #ffc7ce;
+	color: #9c0055;
+}
+
+.table2__grid-item_green {
+	background-color: #c6efce;
+	color: #006100;
+}
+
+.table2__cell_multi {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+.table2__cards {
+	flex: 1;
+	display: flex;
+	gap: 2px;
+	flex-direction: row;
+	align-self: flex-start;
+}
+
+.table2__name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.table2__logo {
+	margin-right: 4px;
+}
+
+.table2__card {
+	padding: 4px;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 100%;
+	background-color: #fedd32;
+}
+
+.table2__card_red {
+	background-color: #ed3037;
+}
+
+.table2__cell_dark {
+	background-color: #cad4e0;
+}
+
+.table2__cell_light {
+	background-color: #dfe9f5;
+}
+
+.table2-wrapper {
+	overflow: auto;
+}
+
+.table2__row_head .table2__grid-item {
+	font-size: 80%;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+@media (hover: hover) {
+	.table2__row:hover:not(.table2__row_head) {
+		background-color: #e6ebed;
+	}
+}
