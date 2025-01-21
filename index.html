@@ -1,0 +1,649 @@
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+		<title>Live | Betlab.club</title>
+		<link href="/favicon.ico" rel="apple-touch-icon" sizes="16x16" />
+		<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+		<link href="https://betlab.club/public-assets/css_min/styles.css?v=49dfb097" rel="stylesheet" />
+		<link href="https://betlab.club/public-assets/css_min/common/common.css?v=49dfb097" rel="stylesheet" />
+		<link href="https://betlab.club/public-assets/css_min/common/balance.css?v=49dfb097" rel="stylesheet" />
+		<link href="https://betlab.club/public-assets/css_min/live/matchTable.css?v=49dfb097" rel="stylesheet" />
+		<link href="https://betlab.club/public-assets/css_min/live/match.css?v=49dfb097" rel="stylesheet" />
+		<link href="https://betlab.club/assets/870fdce3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+		<link href="https://betlab.club/assets/870fdce3/themes/smoothness/theme.css" rel="stylesheet" />
+		<style type="text/css">
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/latin/300/normal.woff2);
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+					U+FEFF, U+FFFD;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/latin-ext/300/normal.woff2);
+				unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/cyrillic/300/normal.woff2);
+				unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/vietnamese/300/normal.woff2);
+				unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/cyrillic-ext/300/normal.woff2);
+				unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/greek-ext/300/normal.woff2);
+				unicode-range: U+1F00-1FFF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/cf-fonts/s/roboto/5.0.11/greek/300/normal.woff2);
+				unicode-range: U+0370-03FF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/latin-ext/400/normal.woff2);
+				unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/latin/400/normal.woff2);
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+					U+FEFF, U+FFFD;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/vietnamese/400/normal.woff2);
+				unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/cyrillic-ext/400/normal.woff2);
+				unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/greek/400/normal.woff2);
+				unicode-range: U+0370-03FF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/cyrillic/400/normal.woff2);
+				unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 400;
+				src: url(/cf-fonts/s/roboto/5.0.11/greek-ext/400/normal.woff2);
+				unicode-range: U+1F00-1FFF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/latin-ext/500/normal.woff2);
+				unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/greek/500/normal.woff2);
+				unicode-range: U+0370-03FF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/greek-ext/500/normal.woff2);
+				unicode-range: U+1F00-1FFF;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/vietnamese/500/normal.woff2);
+				unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/latin/500/normal.woff2);
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+					U+FEFF, U+FFFD;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/cyrillic/500/normal.woff2);
+				unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 500;
+				src: url(/cf-fonts/s/roboto/5.0.11/cyrillic-ext/500/normal.woff2);
+				unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+				font-display: swap;
+			}
+			div.wrapper {
+				display: contents;
+				min-height: 100vh;
+				flex-direction: column;
+			}
+			.p-hidden-accessible {
+				border: 0;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 1px;
+			}
+
+			.p-hidden-accessible input,
+			.p-hidden-accessible select {
+				transform: scale(0);
+			}
+
+			.p-overflow-hidden {
+				overflow: hidden;
+				padding-right: var(--scrollbar-width);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main-wrapper">
+			<div class="content-wrapper">
+				<div class="table_content">
+					<div id="vue-app" data-v-app="">
+						<main>
+							<div class="vue-app-wrapper">
+								<div class="match-feed">
+									<div class="match-table">
+										<div class="match-table__head">
+											<div class="match-row match-row--head">
+												<div class="match-row__col">Минута</div>
+												<div class="match-row__col">Матч</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Счет</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--img">
+													<div class="tooltip"><img src="https://betlab.club/images/ball.svg" class="match-table__img-ball" alt="Минуты голов" /></div>
+												</div>
+												<div class="match-row__col">
+													<div class="tooltip">Последние <br />игры</div>
+												</div>
+												<div class="match-row__col match-row__col--dark">Нач.<br />1Х2</div>
+												<div class="match-row__col match-row__col--dark">ТБ<br />ТМ</div>
+												<div class="match-row__col match-row__col--dark">Live<br />1Х2</div>
+												<div class="match-row__col match-row__col--dark">ТБ<br />ТМ</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">% Владения</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Атаки</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Броски</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Удаления 2 мин</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Удаления 5 мин</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Атаки за 1-3-5 мин</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+												<div class="match-row__col match-row__col--multiline">
+													<div class="match-row__line match-row__col--light">Броски за 1-3-5 мин</div>
+													<div class="match-row__line match-row__line--params">
+														<div class="tooltip"><span>Матч</span></div>
+														<div class="tooltip"><span>1П</span></div>
+														<div class="tooltip"><span>2П</span></div>
+														<div class="tooltip"><span>3П</span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="match-table__body">
+											<div class="match-table__group">
+												<div class="match-table__championship">
+													<div class="match-table__championship-button">
+														<div class="tooltip">
+															<button type="button" class="match-table__toggle-championship">
+																<span>
+																	<svg viewBox="0 0 341.3 341.3">
+																		<path d="M0 149.3h341.3V192H0z"></path>
+																	</svg>
+																</span>
+															</button>
+														</div>
+													</div>
+													<div class="match-table__flag flag" data-country="225" title="World"></div>
+													<div class="match-table__championship-label">Товарищеские матчи клубов</div>
+													<div class="match-table__championship-count">
+														<div class="tooltip">2</div>
+													</div>
+												</div>
+												<div>
+													<div>
+														<div class="match-row">
+															<div class="match-row__col">11:47</div>
+															<div class="match-row__col match-row__col--multiline match-row__col--teams">
+																<div class="match-row__line match-row__line--team">
+																	<div class="match-row__team-name">
+																		<div class="tooltip">
+																			<div class="flex">
+																				<div class="match-row__team-icon">
+																					<img src="img/team-logo.webp" alt="" width="20" height="20" />
+																				</div>
+																				<div class="text-ellipsis">
+																					<a href="#" target="_blank">Вольфсбергер АК</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="match-row__team-cards">
+																		<div class="team-card team-card--yellow">1</div>
+																	</div>
+																</div>
+																<div class="match-row__line match-row__line--team">
+																	<div class="match-row__team-name">
+																		<div class="tooltip">
+																			<div class="flex">
+																				<div class="match-row__team-icon">
+																					<img src="img/team-logo.webp" alt="" width="20" height="20" />
+																				</div>
+																				<div class="text-ellipsis">
+																					<a href="#" target="_blank">Магпис</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="match-row__team-cards">
+																		<div class="team-card team-card--yellow">2</div>
+																	</div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line">
+																	<div class="tooltip">
+																		<span class="match-row__goal">49<span class="minutes-dot">'</span></span>
+																	</div>
+																</div>
+																<div class="match-row__line">
+																	<div class="tooltip">
+																		<span class="match-row__goal">37<span class="minutes-dot">'</span></span>
+																	</div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--results">
+																	<div class="tooltip"><span class="match-letter match-letter--draw">Н</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--draw">Н</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--victory">В</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--victory">В</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--victory">В</span></div>
+																</div>
+																<div class="match-row__line match-row__line--results">
+																	<div class="tooltip"><span class="match-letter match-letter--lose">П</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--lose">П</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--victory">В</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--lose">П</span></div>
+																	<div class="tooltip"><span class="match-letter match-letter--lose">П</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--dark match-row__col--multiline">
+																<div class="match-row__line">1.03</div>
+																<div class="match-row__line">14.80</div>
+																<div class="match-row__line">34.00</div>
+															</div>
+															<div class="match-row__col match-row__col--dark match-row__col--multiline">
+																<div class="match-row__line">1.78</div>
+																<div class="match-row__line">5</div>
+																<div class="match-row__line">2.03</div>
+															</div>
+															<div class="match-row__col match-row__col--dark match-row__col--multiline">
+																<div class="match-row__line">—</div>
+																<div class="match-row__line">—</div>
+																<div class="match-row__line">—</div>
+															</div>
+															<div class="match-row__col match-row__col--dark match-row__col--multiline">
+																<div class="match-row__line">1.86</div>
+																<div class="match-row__line">9.5</div>
+																<div class="match-row__line">1.94</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>30%</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>40%</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>15%</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>70%</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>30%</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>40%</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>15%</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>70%</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+															<div class="match-row__col match-row__col--multiline">
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>45</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>5</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>10</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+																<div class="match-row__line match-row__line--params">
+																	<div class="tooltip"><span>35</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>8</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>12</span></div>
+																	<div class="match-row__line-sep">–</div>
+																	<div class="tooltip"><span>4</span></div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</main>
+					</div>
+				</div>
+				<div class="modal-overlay"></div>
+			</div>
+			<!-- <script src="/assets/3ef6786/yii.js" type="text/javascript"></script>
+			<script src="/public-assets/js/common/main.js?v=49dfb097" type="text/javascript"></script>
+			<script src="/public-assets/js/common/common.js?v=49dfb097" type="text/javascript"></script>
+			<script src="/public-assets/js/common/balance.js?v=49dfb097" type="text/javascript"></script>
+			<script src="/public-assets/js/matchTable/matchTable.js?v=49dfb097" type="text/javascript"></script>
+			<script src="https://betlab.club/assets/2fa67d26/jquery.js" type="text/javascript"></script>
+			<script src="https://betlab.club/assets/870fdce3/jquery-ui.js" type="text/javascript"></script>
+			<script src="https://betlab.club/assets/870fdce3/ui/widgets/datepicker.js" type="text/javascript"></script>
+			<script src="https://betlab.club/assets/870fdce3/ui/i18n/datepicker-ru.js" type="text/javascript"></script> -->
+		</div>
+		<style>
+			.match-table {
+				overflow-x: auto !important;
+			}
+			.match-row {
+				grid-template-columns: 54px 220px 1fr 32px 104px repeat(4, 50px) repeat(7, minmax(180px, 1fr));
+			}
+			.match-row__line {
+				width: 100%;
+			}
+			.match-table__body {
+				/* overflow-x: auto; */
+			}
+
+			@media (max-width: 1200px) {
+				.match-table__body {
+					overflow-x: hidden;
+				}
+
+				.match-row {
+					width: auto;
+				}
+			}
+		</style>
+	</body>
+</html>
